@@ -16,3 +16,4 @@ MonoBehaviour:
   downKeyCode: 115
   rightKeyCode: 100
   leftKeyCode: 97
+  dashKeyCode: 32

@@ -16,3 +16,4 @@ MonoBehaviour:
   downKeyCode: 274
   rightKeyCode: 275
   leftKeyCode: 276
+  dashKeyCode: 305
