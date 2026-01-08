@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    Rigidbody2D rb;
     CircleCollider2D col;
     Transform owner;
 
@@ -14,6 +16,7 @@ public class Ball : MonoBehaviour
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
     }
 
@@ -34,14 +37,30 @@ public class Ball : MonoBehaviour
         isBallCaptured = true;
         owner = newOwner;
         col.enabled = false;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 
     public void ReleaseBall()
     {
         isBallCaptured = false;
         owner = null;
-        col.enabled = true;
+        //col.enabled = true;
+        StartCoroutine(EnableColliderNextFixedFrame());
     }
 
-    
-}
+    public void ShootBall(Vector3 direction)
+    {
+        ReleaseBall();
+        //owner = null;
+
+        transform.localEulerAngles = direction;
+        print(transform.localEulerAngles + "hehe");
+        rb.AddForce(transform.right * 4, ForceMode2D.Impulse);
+    }
+    IEnumerator EnableColliderNextFixedFrame()
+    {
+        yield return new WaitForFixedUpdate();
+        col.enabled = true;
+    }
+}//Class

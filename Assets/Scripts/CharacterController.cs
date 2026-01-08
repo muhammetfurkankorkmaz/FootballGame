@@ -29,6 +29,19 @@ public class CharacterController : MonoBehaviour
     bool isSettingDash = false;
     bool hasDashRotationSpeedRecalculated = false;
 
+    Ball currentBallScript;
+
+    Rigidbody2D rb;
+
+
+    bool isDashing = false;
+    float dashTimer;
+
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
 
@@ -38,6 +51,14 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         InputManager();
+        if (isSettingDash)
+        {
+            dashTimer += Time.deltaTime;
+        }
+        //MovementManager();
+    }
+    private void FixedUpdate()
+    {
         MovementManager();
     }
     void LateUpdate()
@@ -49,7 +70,7 @@ public class CharacterController : MonoBehaviour
             hasDashRotationSpeedRecalculated = true;
             isRotating = false;
         }
-        else if (hasDashRotationSpeedRecalculated && isSettingDash)
+        else if (hasDashRotationSpeedRecalculated && !isSettingDash)
         {
             hasDashRotationSpeedRecalculated = false;
             isRotating = false;
@@ -78,6 +99,7 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyUp(controlButton.dashKeyCode))
         {
             isSettingDash = false;
+            DashRelease();
         }
     }
     void MovementManager()
@@ -100,11 +122,12 @@ public class CharacterController : MonoBehaviour
         {
             if (isSettingDash)
             {
-                transform.position += (Vector3)input.normalized * moveSpeed * Time.deltaTime * slowAmountOnDashPrepare;
+                rb.MovePosition(rb.position + input.normalized * moveSpeed * Time.fixedDeltaTime * slowAmountOnDashPrepare);
             }
             else
             {
-                transform.position += (Vector3)input.normalized * moveSpeed * Time.deltaTime;
+                rb.MovePosition(rb.position + input.normalized * moveSpeed * Time.fixedDeltaTime);
+
             }
         }
 
@@ -132,6 +155,45 @@ public class CharacterController : MonoBehaviour
         isRotating = true;
         currentTargetAngle = targetAngle;
     }
+
+    void DashRelease()
+    {
+
+        if (isBallCaptured)
+        {
+            ShootBall();
+        }
+        else
+        {
+            Dash();
+        }
+        dashTimer = 0;
+    }
+
+    void ShootBall()
+    {
+        //Vector3 dir = transform.position - ballParentObject.transform.position;
+        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        //Vector3 final = new Vector3(0, 0, angle);
+        //print(final);
+
+        currentBallScript.ShootBall(transform.localEulerAngles);
+        print(transform.localEulerAngles);
+        isBallCaptured = false;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        //Vector2 shootDir = transform.right;
+
+        //currentBallScript.ShootBall(shootDir);
+        //isBallCaptured = false;
+    }
+
+    void Dash()
+    {
+        isDashing = true;
+    }
+
     float GetSnappedAngle(Vector2 dir)
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -153,8 +215,12 @@ public class CharacterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            //if (!isDashing) return;
             isBallCaptured = true;
-            collision.gameObject.GetComponent<Ball>().CaptureBall(ballParentObject.transform);
+            currentBallScript = collision.gameObject.GetComponent<Ball>();
+            currentBallScript.CaptureBall(ballParentObject.transform);
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
         }
     }
 }//Class
