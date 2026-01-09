@@ -22,6 +22,13 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isGameStopped)
+        {
+            ResetVelocity();
+            return;
+        }
+
+
         if (owner == null) return;
 
         transform.position =
@@ -53,6 +60,14 @@ public class Ball : MonoBehaviour
         owner = null;
         //col.enabled = true;
         StartCoroutine(EnableColliderNextFixedFrame());
+    }
+    public void ResetBall()
+    {
+        isBallCaptured = false;
+        owner = null;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        col.enabled = true;
     }
 
     public void ShootBall(Vector3 direction, float chargePercentage)

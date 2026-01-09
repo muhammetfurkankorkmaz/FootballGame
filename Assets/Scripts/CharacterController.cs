@@ -60,6 +60,7 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isGameStopped) return;
         InputManager();
         if (isSettingDash)
         {
@@ -279,6 +280,28 @@ public class CharacterController : MonoBehaviour
         //currentBallScript.ReleaseBall();
         return currentBallScript;
 
+    }
+
+    public void ResetCharacter(Quaternion _targetRotation)
+    {
+        isBallCaptured = false;
+        xInput = 0;
+        yInput = 0;
+
+        transform.rotation = _targetRotation;
+        startRotation = _targetRotation;
+        targetRotation = _targetRotation;
+        currentTargetAngle = _targetRotation.eulerAngles.z;
+
+        isRotating = false;
+        rotationTimer = 0f;
+        rotationDuration = 0f;
+
+        // VERY IMPORTANT
+        hasLastMoveDir = false;
+        lastMoveDir = Vector3.zero;
+
+        ResetVelocity();
     }
 
     float GetSnappedAngle(Vector2 dir)
