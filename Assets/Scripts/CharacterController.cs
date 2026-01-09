@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -10,6 +11,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotationStepTime = 0.1f;
     [SerializeField] float slowAmountOnDashPrepare;
+    [SerializeField] float maxDashDuration = 1f;
+    [SerializeField] float dashExtraSpeedMultiplier = 1f;
 
     float rotationTimer;
     float rotationDuration;
@@ -24,18 +27,25 @@ public class CharacterController : MonoBehaviour
     float xInput;
     float yInput;
 
-    bool isBallCaptured = false;
+    public bool isBallCaptured { get; private set; } = false;
 
     bool isSettingDash = false;
     bool hasDashRotationSpeedRecalculated = false;
 
     Ball currentBallScript;
-
     Rigidbody2D rb;
 
-
     bool isDashing = false;
-    float dashTimer;
+    float dashSetTimer;
+    float dashingTimer;
+
+    float stunTimer;
+    bool isStunned = false;
+
+    bool hasHittedEnemy = false;
+
+    bool isColisionWithOtherPlayerOpen = true;
+
 
 
     void Awake()
@@ -53,8 +63,31 @@ public class CharacterController : MonoBehaviour
         InputManager();
         if (isSettingDash)
         {
-            dashTimer += Time.deltaTime;
+            dashSetTimer += Time.deltaTime;
         }
+
+        if (isDashing)
+        {
+            dashingTimer += Time.deltaTime;
+            if (dashingTimer >= maxDashDuration)
+            {
+                dashingTimer = 0;
+                isDashing = false;
+                EndDash();
+            }
+        }
+
+        if (isStunned)
+        {
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= 0.33f)
+            {
+                isStunned = false;
+                stunTimer = 0;
+            }
+        }
+        ResetVelocity();
+
         //MovementManager();
     }
     private void FixedUpdate()
@@ -89,6 +122,7 @@ public class CharacterController : MonoBehaviour
     }
     void InputManager()
     {
+        if (isDashing || isStunned) return;
         yInput = Input.GetKey(controlButton.upKeyCode) ? 1 : Input.GetKey(controlButton.downKeyCode) ? -1 : 0;
         xInput = Input.GetKey(controlButton.rightKeyCode) ? 1 : Input.GetKey(controlButton.leftKeyCode) ? -1 : 0;
 
@@ -126,7 +160,7 @@ public class CharacterController : MonoBehaviour
             }
             else
             {
-                rb.MovePosition(rb.position + input.normalized * moveSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + input.normalized * moveSpeed * Time.fixedDeltaTime * dashExtraSpeedMultiplier);
 
             }
         }
@@ -141,6 +175,11 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    void ResetVelocity()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+    }
 
     void StartRotation(float currentAngle, float targetAngle)
     {
@@ -167,7 +206,7 @@ public class CharacterController : MonoBehaviour
         {
             Dash();
         }
-        dashTimer = 0;
+        dashSetTimer = 0;
     }
 
     void ShootBall()
@@ -177,12 +216,18 @@ public class CharacterController : MonoBehaviour
 
         //Vector3 final = new Vector3(0, 0, angle);
         //print(final);
+        float chargePercent = Mathf.Clamp01(dashSetTimer / maxDashDuration);
 
-        currentBallScript.ShootBall(transform.localEulerAngles);
-        print(transform.localEulerAngles);
+        //dashExtraSpeedMultiplier = Mathf.Lerp(
+        //    0,
+        //    maxDashDuration,
+        //    chargePercent
+        //);
+
+
+        currentBallScript.ShootBall(transform.localEulerAngles, chargePercent);
         isBallCaptured = false;
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
+        ResetVelocity();
         //Vector2 shootDir = transform.right;
 
         //currentBallScript.ShootBall(shootDir);
@@ -192,6 +237,48 @@ public class CharacterController : MonoBehaviour
     void Dash()
     {
         isDashing = true;
+
+        float chargePercent = Mathf.Clamp01(dashSetTimer / maxDashDuration);
+
+        dashExtraSpeedMultiplier = Mathf.Lerp(
+            1.2f,
+            4,
+            chargePercent
+        );
+        //print("Dashed with " + chargePercent * 3.5f);
+        //print("Dash timer is " + dashSetTimer);
+
+        //dashExtraSpeedMultiplier = 3.5f * chargePercent;
+    }
+    void EndDash()
+    {
+        dashExtraSpeedMultiplier = 1;
+        if (!hasHittedEnemy)
+        {
+            if (isBallCaptured) return;
+            Stun();
+        }
+        //else
+        //{
+        //    //yes stun
+        //}
+    }
+
+    public void Stun()
+    {
+        isStunned = true;
+        ResetVelocity();
+        xInput = 0;
+        yInput = 0;
+    }
+
+    public Ball StealBall()
+    {
+        isBallCaptured = false;
+        ResetVelocity();
+        //currentBallScript.ReleaseBall();
+        return currentBallScript;
+
     }
 
     float GetSnappedAngle(Vector2 dir)
@@ -213,14 +300,60 @@ public class CharacterController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("00000000");
         if (collision.gameObject.CompareTag("Ball"))
         {
             //if (!isDashing) return;
+            print("11111");
             isBallCaptured = true;
             currentBallScript = collision.gameObject.GetComponent<Ball>();
             currentBallScript.CaptureBall(ballParentObject.transform);
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
+        if (isDashing && collision.gameObject.CompareTag("Player"))
+        {
+            if (!isColisionWithOtherPlayerOpen) return;
+            print("hüloo" + gameObject.name);
+            //if (!isDashing) return;
+            CharacterController chController = collision.gameObject.GetComponent<CharacterController>();
+            hasHittedEnemy = true;
+            print("222222");
+
+            if (chController.isBallCaptured)
+            {
+                //Take over the ball
+                chController.Stun();
+                Ball currentBall = chController.StealBall();
+                if (currentBallScript == null)
+                {
+                    print("333333333");
+
+                    currentBall.CaptureBall(ballParentObject.transform);
+                }
+                else
+                {
+                    print("444444444");
+
+                    currentBallScript.CaptureBall(ballParentObject.transform);
+                }
+                isBallCaptured = true;
+            }
+            else//Both of them doesn't have the ball
+            {
+                print("555555555");
+
+                Stun();
+                chController.Stun();
+            }
+            isColisionWithOtherPlayerOpen = false;
+            StartCoroutine(OpenCollisionWithOtherPlayer());
+        }
+    }
+
+    IEnumerator OpenCollisionWithOtherPlayer()
+    {
+        yield return new WaitForFixedUpdate();
+        isColisionWithOtherPlayerOpen = true;
     }
 }//Class

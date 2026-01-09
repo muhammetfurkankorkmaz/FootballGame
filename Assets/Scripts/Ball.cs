@@ -28,9 +28,15 @@ public class Ball : MonoBehaviour
             owner.position +
             owner.right * forwardOffset +
             owner.up * sideOffset;
+
+        ResetVelocity();
     }
 
-
+    void ResetVelocity()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+    }
 
     public void CaptureBall(Transform newOwner)
     {
@@ -49,14 +55,14 @@ public class Ball : MonoBehaviour
         StartCoroutine(EnableColliderNextFixedFrame());
     }
 
-    public void ShootBall(Vector3 direction)
+    public void ShootBall(Vector3 direction, float chargePercentage)
     {
         ReleaseBall();
         //owner = null;
 
         transform.localEulerAngles = direction;
         print(transform.localEulerAngles + "hehe");
-        rb.AddForce(transform.right * 4, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * 4 * chargePercentage, ForceMode2D.Impulse);
     }
     IEnumerator EnableColliderNextFixedFrame()
     {

@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 108166943123454560}
   m_Layer: 7
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,6 +265,8 @@ MonoBehaviour:
   moveSpeed: 6
   rotationStepTime: 0.1
   slowAmountOnDashPrepare: 0.05
+  maxDashDuration: 0.25
+  dashExtraSpeedMultiplier: 1
 --- !u!50 &885336616499949846
 Rigidbody2D:
   serializedVersion: 5
