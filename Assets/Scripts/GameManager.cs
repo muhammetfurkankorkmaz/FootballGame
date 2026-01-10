@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     GameObject currentRightPlayer;
     GameObject currentBall;
 
+    public int leftPlayerScore { get; private set; } = 0;
+    public int rightPlayerScore { get; private set; } = 0;
+
 
 
 
@@ -65,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void TeamScore(TeamType teamType)
     {
-        StopGame();
+        //StopGame();
         GameStartAfterGoal(teamType);
     }
 
@@ -83,16 +86,17 @@ public class GameManager : MonoBehaviour
     {
         if (teamType == TeamType.left)
         {
+            rightPlayerScore++;
             currentLeftPlayer.transform.position = leftStartPosition;
             currentRightPlayer.transform.position = rightAfterGoalPosition;
-            currentLeftPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0,0,0));
+            currentLeftPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0, 0, 0));
             currentRightPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0, 0, 180));
             currentBall.GetComponent<Ball>().ResetBall();
             currentBall.transform.position = Vector3.zero;
         }
         else
         {
-
+            leftPlayerScore++;
             currentLeftPlayer.transform.position = leftAfterGoalPosition;
             currentRightPlayer.transform.position = rightStartPosition;
             currentLeftPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0, 0, 0));

@@ -141,18 +141,17 @@ public class CharacterController : MonoBehaviour
     {
         Vector2 input = new Vector2(xInput, yInput);
 
-        // Record direction whenever input exists
         if (input.sqrMagnitude > 0.0001f)
         {
             lastMoveDir = input.normalized;
             hasLastMoveDir = true;
         }
 
-        // If we have no direction yet, do nothing
         if (!hasLastMoveDir)
+        {
             return;
+        }
 
-        // Movement ONLY when input exists (unchanged behavior)
         if (input.sqrMagnitude > 0.0001f)
         {
             if (isSettingDash)
@@ -162,11 +161,9 @@ public class CharacterController : MonoBehaviour
             else
             {
                 rb.MovePosition(rb.position + input.normalized * moveSpeed * Time.fixedDeltaTime * dashExtraSpeedMultiplier);
-
             }
         }
 
-        // Rotation ALWAYS uses last known direction
         float snappedAngle = GetSnappedAngle(lastMoveDir);
 
         if (!isRotating || Mathf.Abs(Mathf.DeltaAngle(currentTargetAngle, snappedAngle)) > 0.1f)
@@ -323,11 +320,11 @@ public class CharacterController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("00000000");
+        //print("00000000");
         if (collision.gameObject.CompareTag("Ball"))
         {
             //if (!isDashing) return;
-            print("11111");
+            //print("11111");
             isBallCaptured = true;
             currentBallScript = collision.gameObject.GetComponent<Ball>();
             currentBallScript.CaptureBall(ballParentObject.transform);
@@ -337,11 +334,11 @@ public class CharacterController : MonoBehaviour
         if (isDashing && collision.gameObject.CompareTag("Player"))
         {
             if (!isColisionWithOtherPlayerOpen) return;
-            print("hüloo" + gameObject.name);
+            //print("hüloo" + gameObject.name);
             //if (!isDashing) return;
             CharacterController chController = collision.gameObject.GetComponent<CharacterController>();
             hasHittedEnemy = true;
-            print("222222");
+            //print("222222");
 
             if (chController.isBallCaptured)
             {
@@ -350,13 +347,13 @@ public class CharacterController : MonoBehaviour
                 Ball currentBall = chController.StealBall();
                 if (currentBallScript == null)
                 {
-                    print("333333333");
+                    //print("333333333");
 
                     currentBall.CaptureBall(ballParentObject.transform);
                 }
                 else
                 {
-                    print("444444444");
+                    //print("444444444");
 
                     currentBallScript.CaptureBall(ballParentObject.transform);
                 }
@@ -364,7 +361,7 @@ public class CharacterController : MonoBehaviour
             }
             else//Both of them doesn't have the ball
             {
-                print("555555555");
+                //print("555555555");
 
                 Stun();
                 chController.Stun();
