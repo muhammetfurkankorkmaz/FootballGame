@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -38,7 +39,11 @@ public class GameManager : MonoBehaviour
     public int leftPlayerScore { get; private set; } = 0;
     public int rightPlayerScore { get; private set; } = 0;
 
+    [SerializeField] UýManager UIManagerScript;
+    [SerializeField] UIEndScreen UIEndScreenScript;
 
+
+    bool isGameEnded = false;
 
 
     void Start()
@@ -52,6 +57,17 @@ public class GameManager : MonoBehaviour
         if (!isGameStopped)
         {
             GameTimer += Time.deltaTime;
+            if (GameTimer >= 5)//Checks if it is even
+            {
+                if (leftPlayerScore == rightPlayerScore)
+                {
+                    isGameEnded = true;
+                }
+                else
+                {
+                    GameEnd();
+                }
+            }
         }
         //if (GameTimer >= 5)
         //{
@@ -69,6 +85,22 @@ public class GameManager : MonoBehaviour
     public void TeamScore(TeamType teamType)
     {
         //StopGame();
+        isGameStopped = true;
+        print(teamType + " has eaten goal");
+        if (isGameEnded)
+        {
+            GameEnd();
+            return;
+        }
+        if (UIManagerScript == null) return;
+        UIManagerScript.EnableScoreText(teamType);
+        StartCoroutine(ResetCoroutine(teamType));
+    }
+
+    IEnumerator ResetCoroutine(TeamType teamType)
+    {
+        //StopGame();
+        yield return new WaitForSecondsRealtime(2f);
         GameStartAfterGoal(teamType);
     }
 
@@ -82,11 +114,16 @@ public class GameManager : MonoBehaviour
         currentRightPlayer.transform.position = rightStartPosition;
     }
 
+
     void GameStartAfterGoal(TeamType teamType)
     {
-        if (teamType == TeamType.left)
+        Time.timeScale = 1;
+        isGameStopped = false;
+        print(teamType + " second");
+        if (teamType == TeamType.right)
         {
-            rightPlayerScore++;
+            leftPlayerScore++;
+
             currentLeftPlayer.transform.position = leftStartPosition;
             currentRightPlayer.transform.position = rightAfterGoalPosition;
             currentLeftPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0, 0, 0));
@@ -96,7 +133,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            leftPlayerScore++;
+            rightPlayerScore++;
+
             currentLeftPlayer.transform.position = leftAfterGoalPosition;
             currentRightPlayer.transform.position = rightStartPosition;
             currentLeftPlayer.GetComponent<CharacterController>().ResetCharacter(Quaternion.Euler(0, 0, 0));
@@ -108,7 +146,22 @@ public class GameManager : MonoBehaviour
 
     void GameEnd()
     {
+        isGameStopped = true;
+        if (leftPlayerScore > rightPlayerScore)
+        {
+            UIEndScreenScript.EnableEndScreen(TeamType.left);
+        }
+        else if (rightPlayerScore > leftPlayerScore)
+        {
+            UIEndScreenScript.EnableEndScreen(TeamType.right);
 
+        }
+        else
+        {
+            //Draw exception
+        }
+
+        //Return to main menu after some time
     }
 
 }//Class
