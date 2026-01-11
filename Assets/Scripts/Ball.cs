@@ -76,7 +76,6 @@ public class Ball : MonoBehaviour
         //owner = null;
 
         transform.localEulerAngles = direction;
-        print(transform.localEulerAngles + "hehe");
         rb.AddForce(transform.right * 4 * chargePercentage, ForceMode2D.Impulse);
     }
     IEnumerator EnableColliderNextFixedFrame()

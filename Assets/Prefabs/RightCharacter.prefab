@@ -48,6 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1583652447156744609, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583652447156744609, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583652447156744609, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2984302615064226249, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -64,6 +76,50 @@ PrefabInstance:
       propertyPath: controlButton
       value: 
       objectReference: {fileID: 11400000, guid: c3b15ffd8a7eb774b9946bce72cf3a74, type: 2}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754318407385414430, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754318407385414430, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754318407385414430, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d2cd6444f1c01e4a8c487356bf2967c, type: 3}
+    - target: {fileID: 6754318407385414430, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9093054439317025725, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
       propertyPath: m_Name
       value: RightCharacter

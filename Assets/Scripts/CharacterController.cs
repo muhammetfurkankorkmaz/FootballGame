@@ -1,3 +1,4 @@
+using CameraShake;
 using System.Collections;
 using UnityEngine;
 
@@ -46,18 +47,10 @@ public class CharacterController : MonoBehaviour
 
     bool isColisionWithOtherPlayerOpen = true;
 
-
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
         if (GameManager.Instance.isGameStopped) return;
@@ -88,8 +81,6 @@ public class CharacterController : MonoBehaviour
             }
         }
         ResetVelocity();
-
-        //MovementManager();
     }
     private void FixedUpdate()
     {
@@ -113,11 +104,11 @@ public class CharacterController : MonoBehaviour
         rotationTimer += Time.deltaTime;
         float t = rotationDuration > 0f ? rotationTimer / rotationDuration : 1f;
 
-        transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+        ballParentObject.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
 
         if (t >= 1f)
         {
-            transform.rotation = targetRotation;
+            ballParentObject.transform.rotation = targetRotation;
             isRotating = false;
         }
     }
@@ -168,7 +159,7 @@ public class CharacterController : MonoBehaviour
 
         if (!isRotating || Mathf.Abs(Mathf.DeltaAngle(currentTargetAngle, snappedAngle)) > 0.1f)
         {
-            float currentAngle = transform.eulerAngles.z;
+            float currentAngle = ballParentObject.transform.eulerAngles.z;
             StartRotation(currentAngle, snappedAngle);
         }
     }
@@ -177,11 +168,12 @@ public class CharacterController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void StartRotation(float currentAngle, float targetAngle)
     {
-        startRotation = transform.rotation;
+        startRotation = ballParentObject.transform.rotation;
         targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
 
 
@@ -209,27 +201,10 @@ public class CharacterController : MonoBehaviour
 
     void ShootBall()
     {
-        //Vector3 dir = transform.position - ballParentObject.transform.position;
-        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        //Vector3 final = new Vector3(0, 0, angle);
-        //print(final);
         float chargePercent = Mathf.Clamp01(dashSetTimer / maxDashDuration);
-
-        //dashExtraSpeedMultiplier = Mathf.Lerp(
-        //    0,
-        //    maxDashDuration,
-        //    chargePercent
-        //);
-
-
-        currentBallScript.ShootBall(transform.localEulerAngles, chargePercent);
+        currentBallScript.ShootBall(ballParentObject.transform.localEulerAngles, chargePercent);
         isBallCaptured = false;
         ResetVelocity();
-        //Vector2 shootDir = transform.right;
-
-        //currentBallScript.ShootBall(shootDir);
-        //isBallCaptured = false;
     }
 
     void Dash()
@@ -243,10 +218,6 @@ public class CharacterController : MonoBehaviour
             4,
             chargePercent
         );
-        //print("Dashed with " + chargePercent * 3.5f);
-        //print("Dash timer is " + dashSetTimer);
-
-        //dashExtraSpeedMultiplier = 3.5f * chargePercent;
     }
     void EndDash()
     {
@@ -256,12 +227,7 @@ public class CharacterController : MonoBehaviour
             if (isBallCaptured) return;
             Stun();
         }
-        //else
-        //{
-        //    //yes stun
-        //}
     }
-
     public void Stun()
     {
         isStunned = true;
@@ -274,9 +240,7 @@ public class CharacterController : MonoBehaviour
     {
         isBallCaptured = false;
         ResetVelocity();
-        //currentBallScript.ReleaseBall();
         return currentBallScript;
-
     }
 
     public void ResetCharacter(Quaternion _targetRotation)
@@ -285,7 +249,7 @@ public class CharacterController : MonoBehaviour
         xInput = 0;
         yInput = 0;
 
-        transform.rotation = _targetRotation;
+        ballParentObject.transform.rotation = _targetRotation;
         startRotation = _targetRotation;
         targetRotation = _targetRotation;
         currentTargetAngle = _targetRotation.eulerAngles.z;
@@ -294,7 +258,6 @@ public class CharacterController : MonoBehaviour
         rotationTimer = 0f;
         rotationDuration = 0f;
 
-        // VERY IMPORTANT
         hasLastMoveDir = false;
         lastMoveDir = Vector3.zero;
 
@@ -334,35 +297,29 @@ public class CharacterController : MonoBehaviour
         if (isDashing && collision.gameObject.CompareTag("Player"))
         {
             if (!isColisionWithOtherPlayerOpen) return;
-            //print("hüloo" + gameObject.name);
-            //if (!isDashing) return;
             CharacterController chController = collision.gameObject.GetComponent<CharacterController>();
             hasHittedEnemy = true;
-            //print("222222");
 
             if (chController.isBallCaptured)
             {
-                //Take over the ball
                 chController.Stun();
+                print("hüüðð");
+                CameraShaker.Presets.ShortShake2D(0.1f, 0.12f, 25, 8);
                 Ball currentBall = chController.StealBall();
                 if (currentBallScript == null)
                 {
-                    //print("333333333");
-
+                    currentBallScript = currentBall;
                     currentBall.CaptureBall(ballParentObject.transform);
                 }
                 else
                 {
-                    //print("444444444");
-
                     currentBallScript.CaptureBall(ballParentObject.transform);
                 }
                 isBallCaptured = true;
             }
             else//Both of them doesn't have the ball
             {
-                //print("555555555");
-
+                CameraShaker.Presets.ShortShake2D(0.06f, 0.08f, 30, 5);
                 Stun();
                 chController.Stun();
             }

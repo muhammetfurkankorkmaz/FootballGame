@@ -1,3 +1,4 @@
+using CameraShake;
 using System.Collections;
 using UnityEngine;
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (!isGameStopped)
         {
             GameTimer += Time.deltaTime;
-            if (GameTimer >= 5)//Checks if it is even
+            if (GameTimer >= 50)//Checks if it is even
             {
                 if (leftPlayerScore == rightPlayerScore)
                 {
@@ -86,9 +87,17 @@ public class GameManager : MonoBehaviour
     {
         //StopGame();
         isGameStopped = true;
-        print(teamType + " has eaten goal");
+        CameraShaker.Presets.Explosion2D(2, 5, 1.1f);
         if (isGameEnded)
         {
+            if (teamType == TeamType.left)
+            {
+                rightPlayerScore++;
+            }
+            else
+            {
+                leftPlayerScore++;
+            }
             GameEnd();
             return;
         }
@@ -108,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         currentBall = Instantiate(ballPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         currentLeftPlayer = Instantiate(leftPlayerPrefab, leftStartPosition, Quaternion.identity);
-        currentRightPlayer = Instantiate(rightPlayerPrefab, leftStartPosition, Quaternion.Euler(0, 0, 180));
+        currentRightPlayer = Instantiate(rightPlayerPrefab, leftStartPosition, Quaternion.Euler(0, 0, 0));
 
         currentLeftPlayer.transform.position = leftStartPosition;
         currentRightPlayer.transform.position = rightStartPosition;

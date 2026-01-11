@@ -52,6 +52,38 @@ PrefabInstance:
       propertyPath: controlButton
       value: 
       objectReference: {fileID: 11400000, guid: 5e00eb19f0facba4facb9742ce6e7ea0, type: 2}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924456217901929037, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754318407385414430, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a7d003edcd1b5049ac2ed881df77b28, type: 3}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761573807069111268, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9093054439317025725, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
       propertyPath: m_Name
       value: LeftCharacter
