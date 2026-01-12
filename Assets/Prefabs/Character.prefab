@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ee1d69359cf996d4094b73dbcf724dbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 504f9cf3f80c2c04abbf719528c6f6ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -169,12 +169,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3976281910657940376, guid: 401be862b2b62cb46bfbc30f256aafda, type: 3}
+  m_Sprite: {fileID: -5776421600631150107, guid: 4ed160accb4341c4eac8154deb847e91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.13, y: 1.13}
+  m_Size: {x: 9.51, y: 9.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -494,6 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468431603500597180}
   - component: {fileID: 3952362508947069951}
+  - component: {fileID: 6358414369631829403}
   - component: {fileID: 885336616499949846}
   - component: {fileID: 108166943123454560}
   m_Layer: 7
@@ -540,6 +541,20 @@ MonoBehaviour:
   slowAmountOnDashPrepare: 0.05
   maxDashDuration: 0.25
   dashExtraSpeedMultiplier: 1
+--- !u!114 &6358414369631829403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093054439317025725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e6dc1a3b98a444591b2278c560b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimation
+  visuals: {fileID: 7997243499453873451}
+  ballParentObject: {fileID: 3939165883771059745}
 --- !u!50 &885336616499949846
 Rigidbody2D:
   serializedVersion: 5

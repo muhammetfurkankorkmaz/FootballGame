@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (!isGameStopped)
         {
             GameTimer += Time.deltaTime;
-            if (GameTimer >= 50)//Checks if it is even
+            if (GameTimer >= 120)//Checks if it is even
             {
                 if (leftPlayerScore == rightPlayerScore)
                 {

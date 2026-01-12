@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 116
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,10 +109,10 @@ TextureImporter:
       name: Untitled_Artwork-4_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 62
-        width: 29
-        height: 39
+        x: 252
+        y: 504
+        width: 214
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: Untitled_Artwork-4_1
       rect:
         serializedVersion: 2
-        x: 69
-        y: 61
-        width: 43
-        height: 39
+        x: 625
+        y: 495
+        width: 214
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: Untitled_Artwork-4_2
       rect:
         serializedVersion: 2
-        x: 30
-        y: 18
-        width: 71
-        height: 42
+        x: 245
+        y: 138
+        width: 576
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

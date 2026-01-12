@@ -46,10 +46,13 @@ public class CharacterController : MonoBehaviour
     bool hasHittedEnemy = false;
 
     bool isColisionWithOtherPlayerOpen = true;
+    public Vector2 DashDirection { get; private set; }
+    //CharacterAnimation chAnim;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        //chAnim = GetComponent<CharacterAnimation>();
     }
     void Update()
     {
@@ -118,14 +121,23 @@ public class CharacterController : MonoBehaviour
         yInput = Input.GetKey(controlButton.upKeyCode) ? 1 : Input.GetKey(controlButton.downKeyCode) ? -1 : 0;
         xInput = Input.GetKey(controlButton.rightKeyCode) ? 1 : Input.GetKey(controlButton.leftKeyCode) ? -1 : 0;
 
-        if (Input.GetKey(controlButton.dashKeyCode))
+        if (Input.GetKey(controlButton.dashKeyCode) && !isDashing)
         {
             isSettingDash = true;
+            if (isBallCaptured)
+            {
+                //chAnim.ChangeCharacterState(CharacterState.ballSetting, 0);
+            }
+            else
+            {
+                //chAnim.ChangeCharacterState(CharacterState.dashSetting, 0);
+            }
         }
-        if (Input.GetKeyUp(controlButton.dashKeyCode))
+        if (Input.GetKeyUp(controlButton.dashKeyCode) && !isDashing)
         {
             isSettingDash = false;
             DashRelease();
+            //chAnim.ChangeCharacterState(CharacterState.normal, 0);
         }
     }
     void MovementManager()
@@ -202,6 +214,7 @@ public class CharacterController : MonoBehaviour
     void ShootBall()
     {
         float chargePercent = Mathf.Clamp01(dashSetTimer / maxDashDuration);
+
         currentBallScript.ShootBall(ballParentObject.transform.localEulerAngles, chargePercent);
         isBallCaptured = false;
         ResetVelocity();
@@ -209,9 +222,15 @@ public class CharacterController : MonoBehaviour
 
     void Dash()
     {
+
         isDashing = true;
 
+        DashDirection = hasLastMoveDir ? lastMoveDir.normalized : Vector2.right;
         float chargePercent = Mathf.Clamp01(dashSetTimer / maxDashDuration);
+        //chAnim.ChangeCharacterState(CharacterState.dashing, chargePercent);
+        //print(DashDirection);
+
+
 
         dashExtraSpeedMultiplier = Mathf.Lerp(
             1.2f,

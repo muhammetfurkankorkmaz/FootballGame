@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: -2858475307370387746
     second: Untitled_Artwork-10_1
+  - first:
+      213: -7782884733772508607
+    second: Untitled_Artwork-10_2
+  - first:
+      213: -4554747220927249744
+    second: Untitled_Artwork-10_3
+  - first:
+      213: 554164468611219060
+    second: Untitled_Artwork-10_4
+  - first:
+      213: 3672132265196636007
+    second: Untitled_Artwork-10_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,9 +64,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.54, y: 0.5}
-  spritePixelsToUnits: 116
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,12 +118,12 @@ TextureImporter:
       name: Untitled_Artwork-10_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 38
-        width: 123
-        height: 88
+        x: 153
+        y: 425
+        width: 343
+        height: 343
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +140,12 @@ TextureImporter:
       name: Untitled_Artwork-10_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 15
-        width: 48
-        height: 26
+        x: 494
+        y: 449
+        width: 72
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -146,12 +158,100 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-10_2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 435
+        width: 64
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142dda3f193adf390800000000000000
+      internalID: -7782884733772508607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-10_3
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 434
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b20feed8894ac0c0800000000000000
+      internalID: -4554747220927249744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-10_4
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 181
+        width: 343
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ef6bae5a9c0b700800000000000000
+      internalID: 554164468611219060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-10_5
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 196
+        width: 232
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767cb43e6d806f230800000000000000
+      internalID: 3672132265196636007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -162,6 +262,10 @@ TextureImporter:
     nameFileIdTable:
       Untitled_Artwork-10_0: 694036048686144334
       Untitled_Artwork-10_1: -2858475307370387746
+      Untitled_Artwork-10_2: -7782884733772508607
+      Untitled_Artwork-10_3: -4554747220927249744
+      Untitled_Artwork-10_4: 554164468611219060
+      Untitled_Artwork-10_5: 3672132265196636007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

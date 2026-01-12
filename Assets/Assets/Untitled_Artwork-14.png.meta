@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: c32c929da7085bd4e8ea47db2f3b9181
+guid: e4c78f3ed5733e9498d560c258da809b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2163657800776185135
-    second: Untitled_Artwork-10 kopya_0
+      213: 2467362178255117525
+    second: Untitled_Artwork-14_0
   - first:
-      213: 6790367986915157818
-    second: Untitled_Artwork-10 kopya_1
+      213: -8483600548443398624
+    second: Untitled_Artwork-14_1
+  - first:
+      213: 3318079621621216343
+    second: Untitled_Artwork-14_2
+  - first:
+      213: -4801404245645825516
+    second: Untitled_Artwork-14_3
+  - first:
+      213: 3064302776628622447
+    second: Untitled_Artwork-14_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-10 kopya_0
+      name: Untitled_Artwork-14_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 123
-        width: 511
-        height: 366
+        x: 27
+        y: 568
+        width: 1007
+        height: 464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2574c66e4bd60e10800000000000000
-      internalID: 2163657800776185135
+      spriteID: 5dc512714d4dd3220800000000000000
+      internalID: 2467362178255117525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled_Artwork-10 kopya_1
+      name: Untitled_Artwork-14_1
       rect:
         serializedVersion: 2
         x: 154
-        y: 28
-        width: 200
-        height: 102
+        y: 445
+        width: 343
+        height: 343
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +149,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a37234a05bb3c3e50800000000000000
-      internalID: 6790367986915157818
+      spriteID: 02ed8bdcf32344a80800000000000000
+      internalID: -8483600548443398624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-14_2
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 444
+        width: 343
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754f13ff5df2c0e20800000000000000
+      internalID: 3318079621621216343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-14_3
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 99
+        width: 393
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a6a3b074cfd5db0800000000000000
+      internalID: -4801404245645825516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-14_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 304
+        width: 208
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f643135d327968a20800000000000000
+      internalID: 3064302776628622447
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_Artwork-10 kopya_0: 2163657800776185135
-      Untitled_Artwork-10 kopya_1: 6790367986915157818
+      Untitled_Artwork-14_0: 2467362178255117525
+      Untitled_Artwork-14_1: -8483600548443398624
+      Untitled_Artwork-14_2: 3318079621621216343
+      Untitled_Artwork-14_3: -4801404245645825516
+      Untitled_Artwork-14_4: 3064302776628622447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
