@@ -8,8 +8,10 @@ public class UıManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI gameTimerText;
     [SerializeField] TextMeshProUGUI leftPlayerScoreText;
     [SerializeField] TextMeshProUGUI rightPlayerScoreText;
+    [SerializeField] TextMeshProUGUI goldenGoalText;
 
     [SerializeField] GameObject scoreTextObject;
+    [SerializeField] GameObject goldenGoalTextObject;
     [SerializeField] TextMeshProUGUI scoreText;
 
     void Start()
@@ -39,16 +41,24 @@ public class UıManager : MonoBehaviour
         }
 
         StopAllCoroutines();
-        StartCoroutine(PlayScoreTextAnimation());
+        StartCoroutine(PlayTextAnimation(scoreText));
     }
-    IEnumerator CloseScoreText()
+
+    public void EnableGoldenGoalText()
     {
-        yield return new WaitForSecondsRealtime(2f);
-        scoreTextObject.SetActive(false);
+        goldenGoalTextObject.SetActive(true);
+        StartCoroutine(PlayTextAnimation(goldenGoalText));
     }
-    IEnumerator PlayScoreTextAnimation()
+    //IEnumerator CloseText(TextMeshProUGUI _text)
+    //{
+    //    yield return new WaitForSecondsRealtime(2f);
+    //    text.SetActive(false);
+    //}
+
+
+    IEnumerator PlayTextAnimation(TextMeshProUGUI _text)
     {
-        RectTransform rect = scoreText.rectTransform;
+        RectTransform rect = _text.rectTransform;
 
         Vector2 startPos = rect.anchoredPosition;
         Vector2 targetPos = startPos + Vector2.up * 80f;
@@ -100,8 +110,8 @@ public class UıManager : MonoBehaviour
         }
 
         rect.anchoredPosition = startPos;
-        scoreText.gameObject.SetActive(false);
-        StartCoroutine(CloseScoreText());
+        _text.gameObject.SetActive(false);
+        //StartCoroutine(CloseText(_text));
     }
     float EaseOutSine(float t)
     {

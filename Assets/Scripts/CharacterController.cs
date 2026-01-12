@@ -65,6 +65,7 @@ public class CharacterController : MonoBehaviour
 
         if (isDashing)
         {
+            isSettingDash = false;
             dashingTimer += Time.deltaTime;
             if (dashingTimer >= maxDashDuration)
             {
@@ -124,16 +125,9 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKey(controlButton.dashKeyCode) && !isDashing)
         {
             isSettingDash = true;
-            if (isBallCaptured)
-            {
-                //chAnim.ChangeCharacterState(CharacterState.ballSetting, 0);
-            }
-            else
-            {
-                //chAnim.ChangeCharacterState(CharacterState.dashSetting, 0);
-            }
+
         }
-        if (Input.GetKeyUp(controlButton.dashKeyCode) && !isDashing)
+        if (Input.GetKeyUp(controlButton.dashKeyCode))
         {
             isSettingDash = false;
             DashRelease();
@@ -222,7 +216,7 @@ public class CharacterController : MonoBehaviour
 
     void Dash()
     {
-
+        isSettingDash = false;
         isDashing = true;
 
         DashDirection = hasLastMoveDir ? lastMoveDir.normalized : Vector2.right;
@@ -246,10 +240,13 @@ public class CharacterController : MonoBehaviour
             if (isBallCaptured) return;
             Stun();
         }
+        isDashing = false; // Always ensure this is false when EndDash is called
+        dashingTimer = 0;
     }
     public void Stun()
     {
         isStunned = true;
+        isSettingDash = false;
         ResetVelocity();
         xInput = 0;
         yInput = 0;
@@ -257,6 +254,7 @@ public class CharacterController : MonoBehaviour
 
     public Ball StealBall()
     {
+        isSettingDash = false;
         isBallCaptured = false;
         ResetVelocity();
         return currentBallScript;
@@ -264,6 +262,10 @@ public class CharacterController : MonoBehaviour
 
     public void ResetCharacter(Quaternion _targetRotation)
     {
+        isSettingDash = false;
+        isDashing = false;
+        dashingTimer = 0;
+        dashSetTimer = 0;
         isBallCaptured = false;
         xInput = 0;
         yInput = 0;
@@ -308,6 +310,7 @@ public class CharacterController : MonoBehaviour
             //if (!isDashing) return;
             //print("11111");
             isBallCaptured = true;
+
             currentBallScript = collision.gameObject.GetComponent<Ball>();
             currentBallScript.CaptureBall(ballParentObject.transform);
             rb.linearVelocity = Vector2.zero;
@@ -316,13 +319,13 @@ public class CharacterController : MonoBehaviour
         if (isDashing && collision.gameObject.CompareTag("Player"))
         {
             if (!isColisionWithOtherPlayerOpen) return;
+
             CharacterController chController = collision.gameObject.GetComponent<CharacterController>();
             hasHittedEnemy = true;
 
             if (chController.isBallCaptured)
             {
                 chController.Stun();
-                print("hüüðð");
                 CameraShaker.Presets.ShortShake2D(0.1f, 0.12f, 25, 8);
                 Ball currentBall = chController.StealBall();
                 if (currentBallScript == null)

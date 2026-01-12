@@ -58,11 +58,13 @@ public class GameManager : MonoBehaviour
         if (!isGameStopped)
         {
             GameTimer += Time.deltaTime;
-            if (GameTimer >= 120)//Checks if it is even
+            if (GameTimer >= 30000)//Checks if it is even
             {
+                if (isGameEnded) return;
                 if (leftPlayerScore == rightPlayerScore)
                 {
                     isGameEnded = true;
+                    UIManagerScript.EnableGoldenGoalText();
                 }
                 else
                 {
