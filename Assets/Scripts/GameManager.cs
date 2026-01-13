@@ -1,6 +1,7 @@
 using CameraShake;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector3 leftAfterGoalPosition;
     [SerializeField] Vector3 rightAfterGoalPosition;
 
+
+
     GameObject currentLeftPlayer;
     GameObject currentRightPlayer;
     GameObject currentBall;
@@ -46,6 +49,9 @@ public class GameManager : MonoBehaviour
 
     bool isGameEnded = false;
 
+    bool isEndSceneOpen = false;
+    float endSceneTimer = 0;
+
 
     void Start()
     {
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
         if (!isGameStopped)
         {
             GameTimer += Time.deltaTime;
-            if (GameTimer >= 30000)//Checks if it is even
+            if (GameTimer >= 120)//Checks if it is even
             {
                 if (isGameEnded) return;
                 if (leftPlayerScore == rightPlayerScore)
@@ -72,12 +78,16 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        //if (GameTimer >= 5)
-        //{
 
-        //    GameStartAfterGoal(TeamType.right);
-        //    GameTimer = 0;
-        //}
+        if (isEndSceneOpen)
+        {
+            endSceneTimer += Time.deltaTime;
+            if (endSceneTimer >= 3.5f)
+            {
+                SceneManager.LoadScene("MainMenu");
+                endSceneTimer = 0;
+            }
+        }
     }
 
     public void StopGame()
@@ -157,6 +167,7 @@ public class GameManager : MonoBehaviour
 
     void GameEnd()
     {
+        isEndSceneOpen = true;
         isGameStopped = true;
         if (leftPlayerScore > rightPlayerScore)
         {
@@ -167,12 +178,6 @@ public class GameManager : MonoBehaviour
             UIEndScreenScript.EnableEndScreen(TeamType.right);
 
         }
-        else
-        {
-            //Draw exception
-        }
-
-        //Return to main menu after some time
     }
 
 }//Class

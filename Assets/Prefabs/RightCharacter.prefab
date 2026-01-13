@@ -73,6 +73,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952362508947069951, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
+      propertyPath: teamType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952362508947069951, guid: 595c906f36dcf4847b1a3a9319d51b1e, type: 3}
       propertyPath: controlButton
       value: 
       objectReference: {fileID: 11400000, guid: c3b15ffd8a7eb774b9946bce72cf3a74, type: 2}

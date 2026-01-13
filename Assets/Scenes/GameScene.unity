@@ -979,6 +979,17 @@ MonoBehaviour:
   topCircleImage: {fileID: 1066302119}
   bottomCircleImage: {fileID: 1681086746}
   endText: {fileID: 951809553}
+  topFace: {fileID: 531340821}
+  bottomFace: {fileID: 89279295}
+  faces:
+  - {fileID: 21300000, guid: a2537ef5dee3f6a4d93f8c79c82595a9, type: 3}
+  - {fileID: 21300000, guid: 3d2cd6444f1c01e4a8c487356bf2967c, type: 3}
+  - {fileID: 21300000, guid: 21062c8fa57710540b09d40f4b775d3e, type: 3}
+  - {fileID: 21300000, guid: 9a7d003edcd1b5049ac2ed881df77b28, type: 3}
+  - {fileID: 21300000, guid: 5d189915281e42c4b82f351dc7139c61, type: 3}
+  - {fileID: 21300000, guid: 7409c67319613db47b55570421b8a6ad, type: 3}
+  - {fileID: 21300000, guid: 504f9cf3f80c2c04abbf719528c6f6ba, type: 3}
+  - {fileID: 21300000, guid: e4c78f3ed5733e9498d560c258da809b, type: 3}
   topCircle: {fileID: 1066302118}
   bottomCircle: {fileID: 1342552343}
   jumpHeight: 300

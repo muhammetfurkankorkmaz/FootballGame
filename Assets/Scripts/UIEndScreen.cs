@@ -10,6 +10,10 @@ public class UIEndScreen : MonoBehaviour
     [SerializeField] Image bottomCircleImage;
     [SerializeField] TextMeshProUGUI endText;
 
+    [SerializeField] Image topFace;
+    [SerializeField] Image bottomFace;
+    [SerializeField] Sprite[] faces;
+
     [Header("Animation Settings")]
     [SerializeField] RectTransform topCircle;
     [SerializeField] RectTransform bottomCircle;
@@ -24,17 +28,12 @@ public class UIEndScreen : MonoBehaviour
 
     bool isAnimationPlaying = false;
     bool hasPlayedAnimation = false;
-    //private void Start()
-    //{
-    //    endScreenObject.SetActive(true);
-    //    StartCoroutine(EndScreenAnimation());
-    //}
+
     private void Update()
     {
         if (hasPlayedAnimation && !isAnimationPlaying)
         {
             StartCoroutine(EndScreenAnimation());
-
         }
     }
     void LateUpdate()
@@ -53,6 +52,8 @@ public class UIEndScreen : MonoBehaviour
         {
             topCircleImage.color = Color.blue;
             bottomCircleImage.color = Color.red;
+            topFace.sprite = faces[PlayerPrefs.GetInt("blueface")];
+            bottomFace.sprite = faces[PlayerPrefs.GetInt("redface")];
             endText.color = Color.blue;
             endText.text = "blue wins!";
         }
@@ -60,13 +61,15 @@ public class UIEndScreen : MonoBehaviour
         {
             topCircleImage.color = Color.red;
             bottomCircleImage.color = Color.blue;
+            bottomFace.sprite = faces[PlayerPrefs.GetInt("blueface")];
+            topFace.sprite = faces[PlayerPrefs.GetInt("redface")];
             endText.color = Color.red;
             endText.text = "red wins!";
         }
         endScreenObject.SetActive(true);
         StartCoroutine(EndScreenAnimation());
     }
-    
+
 
     private IEnumerator EndScreenAnimation()
     {

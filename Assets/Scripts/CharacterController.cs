@@ -15,6 +15,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] float maxDashDuration = 1f;
     [SerializeField] float dashExtraSpeedMultiplier = 1f;
 
+    [SerializeField] TeamType teamType;
+    [SerializeField] SpriteRenderer faceSr;
+    [SerializeField] Sprite[] faces;
+
     float rotationTimer;
     float rotationDuration;
     Quaternion startRotation;
@@ -53,6 +57,14 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //chAnim = GetComponent<CharacterAnimation>();
+        if (teamType == TeamType.left)
+        {
+            faceSr.sprite = faces[PlayerPrefs.GetInt("blueface")];
+        }
+        else
+        {
+            faceSr.sprite = faces[PlayerPrefs.GetInt("redface")];
+        }
     }
     void Update()
     {
