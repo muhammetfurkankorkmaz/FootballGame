@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void YesButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
