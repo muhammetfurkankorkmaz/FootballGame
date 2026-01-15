@@ -83,4 +83,11 @@ public class Ball : MonoBehaviour
         yield return new WaitForFixedUpdate();
         col.enabled = true;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            SoundManager.Instance.PLayBallWallHitSound();
+        }
+    }
 }//Class

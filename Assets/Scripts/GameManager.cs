@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] UýManager UIManagerScript;
     [SerializeField] UIEndScreen UIEndScreenScript;
 
+    [SerializeField] GameObject exitCanvas;
+
 
     bool isGameEnded = false;
 
@@ -88,6 +90,31 @@ public class GameManager : MonoBehaviour
                 endSceneTimer = 0;
             }
         }
+
+        if (!isEndSceneOpen)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OpenEscapeTab();
+            }
+        }
+
+    }
+    void OpenEscapeTab()
+    {
+        exitCanvas.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void YesButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void NoButton()
+    {
+        Time.timeScale = 1;
+        exitCanvas.SetActive(false);
     }
 
     public void StopGame()
@@ -98,6 +125,7 @@ public class GameManager : MonoBehaviour
     public void TeamScore(TeamType teamType)
     {
         //StopGame();
+        SoundManager.Instance.PlayGoalSound();
         isGameStopped = true;
         CameraShaker.Presets.Explosion2D(2, 5, 1.1f);
         if (isGameEnded)

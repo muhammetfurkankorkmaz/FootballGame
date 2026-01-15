@@ -15,6 +15,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] float maxDashDuration = 1f;
     [SerializeField] float dashExtraSpeedMultiplier = 1f;
 
+    [SerializeField] GameObject particle;
+
     [SerializeField] TeamType teamType;
     [SerializeField] SpriteRenderer faceSr;
     [SerializeField] Sprite[] faces;
@@ -51,6 +53,8 @@ public class CharacterController : MonoBehaviour
 
     bool isColisionWithOtherPlayerOpen = true;
     public Vector2 DashDirection { get; private set; }
+
+    SoundManager SM;
     //CharacterAnimation chAnim;
 
     void Awake()
@@ -65,6 +69,10 @@ public class CharacterController : MonoBehaviour
         {
             faceSr.sprite = faces[PlayerPrefs.GetInt("redface")];
         }
+    }
+    private void Start()
+    {
+        SM = SoundManager.Instance;
     }
     void Update()
     {
@@ -83,6 +91,7 @@ public class CharacterController : MonoBehaviour
             {
                 dashingTimer = 0;
                 isDashing = false;
+                dashExtraSpeedMultiplier = 1;
                 EndDash();
             }
         }
@@ -208,10 +217,12 @@ public class CharacterController : MonoBehaviour
 
         if (isBallCaptured)
         {
+            SM.PlayBallKickSound();
             ShootBall();
         }
         else
         {
+            SM.PlayDashSound(teamType);
             Dash();
         }
         dashSetTimer = 0;
@@ -246,12 +257,12 @@ public class CharacterController : MonoBehaviour
     }
     void EndDash()
     {
-        dashExtraSpeedMultiplier = 1;
         if (!hasHittedEnemy)
         {
             if (isBallCaptured) return;
             Stun();
         }
+        dashExtraSpeedMultiplier = 1;
         isDashing = false; // Always ensure this is false when EndDash is called
         dashingTimer = 0;
     }
@@ -276,6 +287,7 @@ public class CharacterController : MonoBehaviour
     {
         isSettingDash = false;
         isDashing = false;
+        dashExtraSpeedMultiplier = 1;
         dashingTimer = 0;
         dashSetTimer = 0;
         isBallCaptured = false;
@@ -327,16 +339,19 @@ public class CharacterController : MonoBehaviour
             currentBallScript.CaptureBall(ballParentObject.transform);
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
+            SM.PlayCaptureSound();
         }
         if (isDashing && collision.gameObject.CompareTag("Player"))
         {
             if (!isColisionWithOtherPlayerOpen) return;
+            Instantiate(particle, transform.position, Quaternion.identity);
 
             CharacterController chController = collision.gameObject.GetComponent<CharacterController>();
             hasHittedEnemy = true;
 
             if (chController.isBallCaptured)
             {
+                SM.PlayBallStealSound();
                 chController.Stun();
                 CameraShaker.Presets.ShortShake2D(0.1f, 0.12f, 25, 8);
                 Ball currentBall = chController.StealBall();
@@ -353,6 +368,7 @@ public class CharacterController : MonoBehaviour
             }
             else//Both of them doesn't have the ball
             {
+                SoundManager.Instance.PlayCollideSound();
                 CameraShaker.Presets.ShortShake2D(0.06f, 0.08f, 30, 5);
                 Stun();
                 chController.Stun();

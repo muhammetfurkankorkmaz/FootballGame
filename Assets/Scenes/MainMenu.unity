@@ -392,10 +392,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: level design - mehmet zahir sessiz
+  m_text: "level des\u0131gn - mehmet zahir sessiz"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -742,8 +742,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: lead programmer - m.furkan korkmaz
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1147,8 +1147,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- wasd or arrow keys for movement,'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1283,8 +1283,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- remember you have to release the ball to score'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1666,8 +1666,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- reach the ball to the opponents goal to score'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1877,8 +1877,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- move to the ball to capture the ball'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2758,10 +2758,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: game design - M.furkan korkmaz
+  m_text: "game des\u0131gn - m.furkan korkmaz"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2894,7 +2894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Air soccer
+  m_text: soccer face
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
   m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
@@ -3030,10 +3030,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- hold space or rCtrl for to dash'
+  m_text: '- hold space or rctrl for to dash'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3063,7 +3063,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3440,8 +3440,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: vfx - mehmet zahir sessiz
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3574,10 +3574,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- crush the other lame circle and be the winner'
+  m_text: "- crush the other lame c\u0131rcle and be the w\u0131nner"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3607,7 +3607,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3786,10 +3786,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: junior programmer - nazli simal kumcu
+  m_text: "junior programmer - nazl\u0131 simal kumcu"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3924,8 +3924,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- dash to your opponent to steal the captured ball'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3955,7 +3955,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4365,10 +4365,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2d artist - nazli simal kumcu
+  m_text: "2D art\u0131st - nazl\u0131 simal kumcu"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4398,7 +4398,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4634,10 +4634,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- goal is to score more that your opponent before timer runs out'
+  m_text: "- goal \u0131s to score more that your opponent before t\u0131mer runs
+    out"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
-  m_sharedMaterial: {fileID: -8408466719572473088, guid: 6dfa177c342707c488a6d2aba94bf552, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4667,7 +4668,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535

@@ -540,6 +540,7 @@ MonoBehaviour:
   slowAmountOnDashPrepare: 0.05
   maxDashDuration: 0.25
   dashExtraSpeedMultiplier: 1
+  particle: {fileID: 6611428012137814223, guid: 7c4ebd6b673f5674db082c6c543462e1, type: 3}
   teamType: 0
   faceSr: {fileID: 6754318407385414430}
   faces:
